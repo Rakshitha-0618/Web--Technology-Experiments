@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: orange;
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+}
+
+input, select {
+    padding: 5px;
+}

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshitha · security analyst</title>
+    <!-- Font Awesome 5 (free) + stacked icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+         background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+            color: #eef5ff;
+            line-height: 1.6;
+        }
+
+        /* header / home */
+        #header {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0f2027, #203a43, #2c5364);
+            padding: 20px 8%;
+            border-bottom: 1px solid #253349;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 25px 0 15px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2f80ed;
+            box-shadow: 0 0 20px #2f80ed55;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #cbd9f0;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:hover {
+            color: #60a5fa;
+            border-bottom-color: #60a5fa;
+        }
+
+        .header-text {
+            margin-top: 18vh;
+        }
+
+        .header-text p {
+            font-size: 1.3rem;
+            color: #9bb9ff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .header-text h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .header-text h1 span {
+            color: #3b82f6;
+            border-bottom: 4px solid #3b82f6;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .header-text h1 bra {
+            display: block;
+            font-size: 2.6rem;
+            color: #b3ceff;
+            margin-top: 10px;
+        }
+
+        /* ---------- about (fresh) ---------- */
+        #about {
+            background: #0e121f;
+            padding: 85px 0;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .about-col-1 {
+            flex-basis: 35%;
+            min-width: 280px;
+        }
+
+        .about-col-1 img {
+            width: 100%;
+            border-radius: 40px 20px 40px 20px;
+            box-shadow: 0 30px 40px -20px #000000cc;
+            border: 4px solid #253a61;
+            transition: 0.3s;
+        }
+
+        .about-col-1 img:hover {
+            border-color: #3b82f6;
+            transform: scale(1.01);
+        }
+
+        .about-col-2 {
+            flex-basis: 58%;
+        }
+
+        .sub-title {
+            font-size: 2.8rem;
+            font-weight: 650;
+            color: #f0f7ff;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .sub-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 80px;
+            height: 5px;
+            background: #3b82f6;
+            border-radius: 8px;
+        }
+
+        .about-col-2 p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #cddefa;
+            text-align: justify;
+        }
+
+        /* ---------- services (UPDATED: malware, soc, etc) ---------- */
+        #services {
+            background: #0b101b;
+            padding: 80px 0;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 40px;
+            margin-top: 55px;
+        }
+
+        .service-item {
+            background: #17212f;
+            padding: 2.5rem 2rem;
+            border-radius: 35px;
+            border: 1px solid #2b3f5c;
+            box-shadow: 0 20px 25px -15px #00000080;
+            transition: 0.25s;
+            text-align: center;
+        }
+
+        .service-item:hover {
+            background: #1e2c40;
+            transform: translateY(-10px);
+            border-color: #3b82f6;
+        }
+
+        /* custom icon stack (laptop + lock + bug) — pentesting style */
+        .icon-stack-custom {
+            display: inline-block;
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin-bottom: 25px;
+        }
+
+        .icon-stack-custom .fa-laptop {
+            font-size: 4.2rem;
+            color: #d9e9ff;
+        }
+
+        .icon-stack-custom .fa-lock {
+            position: absolute;
+            top: 22px;
+            left: 28px;
+            font-size: 1.6rem;
+            color: #3b82f6;
+            filter: drop-shadow(0 0 5px #3b82f6);
+        }
+
+        .icon-stack-custom .fa-bug {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 1.4rem;
+            color: #f87171;
+        }
+
+        /* simple stacked for other icons */
+        .service-item i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #60a5fa;
+        }
+
+        .service-item h2 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #edf4ff;
+        }
+
+        .service-item p {
+            color: #a6c0e6;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .service-item a {
+            text-decoration: none;
+            color: #bfd9ff;
+            font-weight: 500;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 3px;
+        }
+
+        /* ---------- work (UPDATED: malware analysis / soc analyst) ---------- */
+        #work {
+            background: #0d1322;
+            padding: 80px 0;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 45px;
+            margin-top: 55px;
+        }
+
+        .work-item {
+            background: #1b2538;
+            border-radius: 35px;
+            padding: 2.2rem 2rem;
+            border: 1px solid #2f4160;
+            transition: 0.2s;
+        }
+
+        .work-item:hover {
+            border-color: #3b82f6;
+            background: #1f2c44;
+            transform: translateY(-6px);
+        }
+
+        .work-img {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            color: #60a5fa;
+        }
+
+        .work-item h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .work-item p {
+            color: #b0c8f0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .work-tag {
+            display: inline-block;
+            background: #2a3855;
+            padding: 8px 22px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 500;
+            border: 1px solid #4a68a3;
+        }
+
+        .work-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #90caf9;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 3px;
+        }
+
+        /* ---------- contact ---------- */
+        #contact {
+            background: #0a0f1a;
+            padding: 70px 0 30px;
+        }
+
+        .contact-left {
+            flex-basis: 35%;
+        }
+
+        .contact-left p {
+            margin: 20px 0;
+            font-size: 1.1rem;
+            color: #cbdaf5;
+        }
+
+        .contact-left p i {
+            color: #3b82f6;
+            width: 30px;
+            font-size: 1.4rem;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 2rem;
+            margin-right: 25px;
+            color: #9bb6e0;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #3b82f6;
+            transform: translateY(-5px);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3b82f6;
+            color: black;
+            padding: 14px 42px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 20px 0;
+            border: 2px solid #3b82f6;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #3b82f6;
+        }
+
+        .contact-right {
+            flex-basis: 58%;
+        }
+
+        .contact-right form input,
+        .contact-right form textarea {
+            width: 100%;
+            background: #1a2538;
+            border: 1px solid #314868;
+            padding: 16px 20px;
+            border-radius: 30px;
+            color: white;
+            margin: 12px 0;
+            font-size: 1rem;
+        }
+
+        .contact-right form button {
+            background: #3b82f6;
+            border: none;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 2px solid #3b82f6;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .contact-right form button:hover {
+            background: transparent;
+            color: #3b82f6;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 35px 0 20px;
+            color: #94a9cc;
+            border-top: 1px solid #253349;
+            margin-top: 40px;
+        }
+
+        .copyright i {
+            color: #f87171;
+        }
+
+        @media (max-width: 700px) {
+            .header-text h1 { font-size: 2.8rem; }
+            nav ul { gap: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="https://placehold.co/200x200/1f2c42/3b82f6?text=R" class="logo-img" alt="Karthik">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <p>Security Analyst</p>
+                <h1>Hi, I'm <span>Rakshitha</span><bra>From India</bra></h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- about (fresh) -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="https://placehold.co/500x600/1b2a44/5a8af4?text=RAKSHITHA" alt="Karthik">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hello! I'm Rakshitha , a passionate security analyst and B.Tech student focused on malware reverse engineering, SOC operations, and penetration testing. I spend my days dissecting malicious code, building detection rules, and simulating adversary techniques. I believe in proactive defence and continuous learning — currently chasing GREM and eCDFP certifications. When not in front of a terminal, I contribute to open-source threat intel feeds and volunteer as a blue teamer for local CTFs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- services - UPDATED with malware / soc analyst -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">Specialties</h1>
+            <div class="services-list">
+                <!-- Malware analyst -->
+                <div class="service-item">
+                    <div class="icon-stack-custom">
+                        <i class="fas fa-laptop"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h2>Malware analyst</h2>
+                    <p>static/dynamic analysis, sandbox evasion, memory forensics, YARA rules.</p>
+                    <a href="#">know more</a>
+                </div>
+                <!-- SOC analyst -->
+                <div class="service-item">
+                    <i class="fas fa-shield-alt" style="font-size: 4rem;"></i>
+                    <h2>SOC analyst</h2>
+                    <p>SIEM (Splunk, QRadar), threat hunting, incident response, MITRE ATT&CK.</p>
+                    <a href="#">know more</a>
+                </div>
+                <!-- Penetration testing (existing) -->
+                <div class="service-item">
+                    <i class="fas fa-crosshairs" style="font-size: 4rem;"></i>
+                    <h2>Penetration testing</h2>
+                    <p>web, network, AD, and wireless — with detailed reporting & remediation.</p>
+                    <a href="#">know more</a>
+                </div>
+                <!-- Threat intel -->
+                <div class="service-item">
+                    <i class="fas fa-brain" style="font-size: 4rem;"></i>
+                    <h2>Threat intelligence</h2>
+                    <p>OSINT, CTI feeds, IoC extraction, and campaign tracking.</p>
+                    <a href="#">know more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- work - UPDATED with malware analysis & soc analyst projects -->
+    <div id="work">
+        <div class="container">
+            <h1 class="sub-title">Security work</h1>
+            <div class="work-list">
+                <!-- Malware analysis work -->
+                <div class="work-item">
+                    <div class="work-img">
+                        <i class="fas fa-biohazard"></i>
+                    </div>
+                    <h3>Malware analysis</h3>
+                    <p>Reverse engineered Emotet & TrickBot samples — wrote unpacker and extracted C2 configs. Published analysis on medium (3k+ views).</p>
+                    <span class="work-tag">Ghidra / x64dbg</span>
+                    <div><a href="#" class="work-link">see report →</a></div>
+                </div>
+                <!-- SOC analyst work -->
+                <div class="work-item">
+                    <div class="work-img">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>SOC analyst</h3>
+                    <p>Built a home lab with ELK stack + Zeek + Caldera. Simulated APT29 attack and created 15 sigma rules — now used by small SOC team.</p>
+                    <span class="work-tag">Splunk / KQL</span>
+                    <div><a href="#" class="work-link">case study →</a></div>
+                </div>
+                <!-- Additional work: threat intel / forensic -->
+                <div class="work-item">
+                    <div class="work-img">
+                        <i class="fas fa-skull-crossbones"></i>
+                    </div>
+                    <h3>Memory forensics</h3>
+                    <p>Volatility 3 plugins for detecting rootkits. Analysed LockBit memory dumps and identified persistence mechanisms.</p>
+                    <span class="work-tag">volatility / rekall</span>
+                    <div><a href="#" class="work-link">plugins →</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- contact (mostly unchanged, but fresh) -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact me</h1>
+                    <p><i class="fas fa-envelope"></i> karthik.g@cyberlab.in</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9014631539</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <a href="#" class="btn">download CV</a>
+                </div>
+                <div class="contact-right">
+                    <form>
+                        <input type="text" name="name" placeholder="your name" required>
+                        <input type="email" name="email" placeholder="email" required>
+                        <textarea name="message" rows="5" placeholder="message"></textarea>
+                        <button type="submit" class="btn">send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>security researcher · blue team · <i class="fas fa-heart"></i> by Karthik</p>
+        </div>
+    </div>
+</body>
+</html>
